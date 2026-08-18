@@ -1,4 +1,5 @@
 <?php
+echo 'MIDDLEWARE FILE LOADED';
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 /**
  * ------------------------------------------------------------------
@@ -41,4 +42,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 | Used for adding middlewares
 |
 */
-$config['middlewares'] = [];
+   $config['middlewares'] = array(
+       'student_access' => load_class('StudentMiddleware', 'middlewares'),
+   );
+   

@@ -79,8 +79,8 @@ $config['environment'] = getenv('APP_ENV') ?: 'development';
 | WARNING: You MUST set this value!
 |
 */
-$config['base_url'] 				= '';
-
+   $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+   $config['base_url'] = $protocol . $_SERVER['HTTP_HOST'] . '/';
 /*
 |--------------------------------------------------------------------------
 | Static File Proxies
@@ -348,4 +348,8 @@ $config['csrf_token_name']         = 'csrf_test_name';
 $config['csrf_cookie_name']        = 'csrf_cookie_name';
 $config['csrf_expire']             = 7200;
 $config['csrf_regenerate']         = FALSE;
-?>
+
+   $config['middlewares'] = array(
+       'student_access' => load_class('StudentMiddleware', 'middlewares'),
+   );
+   ?>
