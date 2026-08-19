@@ -45,3 +45,16 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 /** @var object $router **/
 
 $router->get('/', 'Welcome::index');
+
+/*
+| -------------------------------------------------------------------
+| STUDENT INFORMATION PAGE ROUTES
+| -------------------------------------------------------------------
+| Laboratory Activity: Routing, Controllers, Views, and Middleware
+| Author: Lance Adrian T. De Vero
+| Submitted to: Sir Ronald M. Marasigan
+*/
+$router->get('/student', 'StudentController::index');
+$router->get('/student/profile', 'StudentController::profile')->middleware('StudentMiddleware');
+$router->get('/student/grant-access', 'StudentController::grant_access');
+$router->get('/student/revoke-access', 'StudentController::revoke_access');
