@@ -335,7 +335,7 @@
     </main>
 </div>
 
-<footer>MinSU: CCS -$_ENV Calapan Campus</footer>
+<footer>MinSU: CCS -Calapan Campus</footer>
 
 </body>
 </html>
