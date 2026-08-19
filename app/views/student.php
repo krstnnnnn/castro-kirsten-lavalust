@@ -335,7 +335,7 @@
     </main>
 </div>
 
-<footer>StudentController::index() — MCC2024-00034</footer>
+<footer>MinSU: CCS -$_ENV Calapan Campus</footer>
 
 </body>
 </html>
