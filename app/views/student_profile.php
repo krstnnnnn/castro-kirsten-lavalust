@@ -4,56 +4,74 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= htmlspecialchars($page_title) ?> - Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+    :root {
+        --kraft: #E3D0A9;
+        --paper: #FFFBF2;
+        --paper-alt: #FBF2DF;
+        --ink: #4A3B2A;
+        --ink-muted: #8C7A5E;
+        --tape: #D9C3EC;
+        --tape-ink: #6B5480;
+        --chip-bg: #F3E9FA;
+        --rule: #C7DAEA;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #eef1f6;
-        color: #1f2937;
+        font-family: 'Quicksand', sans-serif;
+        background: var(--kraft);
+        color: var(--ink);
+        line-height: 1.5;
     }
     .topbar {
-        background: #0f2f52;
-        color: #fff;
+        background: var(--paper);
+        color: var(--ink);
         padding: 14px 32px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 3px solid #d4af37;
+        border-bottom: 2px dashed var(--tape-ink);
     }
     .topbar .brand {
         display: flex;
         align-items: center;
         gap: 10px;
+        font-family: 'Caveat', cursive;
         font-weight: 700;
-        font-size: 17px;
-        letter-spacing: 0.3px;
+        font-size: 22px;
+        letter-spacing: 0.2px;
     }
     .topbar .brand .crest {
         width: 34px;
         height: 34px;
         border-radius: 50%;
-        background: #d4af37;
-        color: #0f2f52;
+        background: var(--chip-bg);
+        border: 2px dashed var(--tape-ink);
+        color: var(--tape-ink);
         display: flex;
         align-items: center;
         justify-content: center;
+        font-family: 'Quicksand', sans-serif;
         font-weight: 800;
-        font-size: 16px;
+        font-size: 15px;
     }
     .topbar nav a {
-        color: #dbe4f0;
+        color: var(--ink-muted);
         text-decoration: none;
-        margin-left: 26px;
+        margin-left: 24px;
         font-size: 13px;
         font-weight: 600;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.2px;
         padding-bottom: 4px;
-        border-bottom: 2px solid transparent;
+        border-bottom: 2px dashed transparent;
         transition: 0.2s;
     }
     .topbar nav a:hover {
-        color: #fff;
-        border-bottom-color: #d4af37;
+        color: var(--tape-ink);
+        border-bottom-color: var(--tape-ink);
     }
     .container {
         max-width: 780px;
@@ -61,64 +79,81 @@
         padding: 0 24px;
     }
     .record {
-        background: #fff;
-        border-radius: 10px;
+        position: relative;
+        background: var(--paper);
+        border-radius: 16px;
         overflow: hidden;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 4px 14px rgba(15, 47, 82, 0.08);
+        border: 1px solid rgba(140, 122, 94, 0.2);
+        box-shadow: 0 18px 40px rgba(74, 59, 42, 0.15);
+    }
+    .washi {
+        position: absolute;
+        top: -18px;
+        left: 50%;
+        width: 150px;
+        height: 38px;
+        background: var(--tape);
+        opacity: 0.85;
+        transform: translateX(-50%) rotate(-2.5deg);
+        border-radius: 2px;
+        box-shadow: 0 2px 5px rgba(74, 59, 42, 0.12);
     }
     .record-header {
-        background: linear-gradient(120deg, #0f2f52, #1a4d7f);
-        color: #fff;
+        background: var(--paper-alt);
         padding: 34px 40px;
         display: flex;
         align-items: center;
         gap: 20px;
+        border-bottom: 2px dashed var(--rule);
     }
     .record-header .avatar {
         width: 76px;
         height: 76px;
         border-radius: 50%;
-        background: #d4af37;
-        color: #0f2f52;
+        background: var(--chip-bg);
+        color: var(--tape-ink);
         font-weight: 800;
-        font-size: 28px;
+        font-size: 26px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
-        border: 3px solid rgba(255,255,255,0.6);
+        border: 3px dashed var(--tape-ink);
+        transform: rotate(-3deg);
     }
     .record-header .who .name {
-        font-size: 21px;
+        font-family: 'Caveat', cursive;
         font-weight: 700;
+        font-size: 30px;
+        color: var(--ink);
+        line-height: 1.1;
     }
     .record-header .who .sub {
         font-size: 13px;
-        opacity: 0.85;
-        margin-top: 3px;
+        color: var(--ink-muted);
+        margin-top: 4px;
     }
     .record-header .verified {
         margin-left: auto;
-        background: rgba(212, 175, 55, 0.18);
-        border: 1px solid #d4af37;
-        color: #f5e3a1;
+        background: var(--chip-bg);
+        border: 1.5px dashed var(--tape-ink);
+        color: var(--tape-ink);
         font-size: 11.5px;
         font-weight: 700;
-        letter-spacing: 0.4px;
+        letter-spacing: 0.3px;
         padding: 6px 12px;
         border-radius: 999px;
         white-space: nowrap;
+        transform: rotate(4deg);
     }
     .record-body {
         padding: 34px 40px 40px;
     }
     .section-title {
-        color: #0f2f52;
-        font-size: 12.5px;
+        color: var(--ink-muted);
+        font-size: 13px;
         font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 0.3px;
         margin: 26px 0 12px;
         display: flex;
         align-items: center;
@@ -128,8 +163,7 @@
     .section-title::after {
         content: "";
         flex: 1;
-        height: 1px;
-        background: #e5e9f0;
+        border-top: 2px dashed var(--rule);
     }
     .grid {
         display: grid;
@@ -137,7 +171,7 @@
         gap: 16px 28px;
     }
     .field .label {
-        color: #8592a6;
+        color: var(--ink-muted);
         font-size: 10.5px;
         font-weight: 700;
         text-transform: uppercase;
@@ -145,12 +179,12 @@
         margin-bottom: 4px;
     }
     .field .value {
-        color: #1f2937;
+        color: var(--ink);
         font-size: 14.5px;
         font-weight: 600;
     }
     .bio {
-        color: #556277;
+        color: var(--ink-muted);
         font-size: 14px;
         line-height: 1.7;
     }
@@ -160,13 +194,15 @@
         gap: 8px;
     }
     .tag {
-        background: #f1f4f8;
-        border: 1px solid #dbe2ec;
-        color: #0f2f52;
+        background: var(--chip-bg);
+        border: 1.5px dashed var(--tape-ink);
+        color: var(--tape-ink);
         font-size: 12.5px;
         font-weight: 600;
-        padding: 6px 12px;
+        padding: 6px 14px;
         border-radius: 999px;
+        display: inline-block;
+        transform: rotate(-1.5deg);
     }
     .social-links {
         display: flex;
@@ -174,45 +210,45 @@
         gap: 10px;
     }
     .social-links a {
-        color: #0f2f52;
+        color: var(--tape-ink);
         font-size: 13px;
         font-weight: 600;
         text-decoration: none;
-        background: #f1f4f8;
-        border: 1px solid #dbe2ec;
-        padding: 8px 14px;
-        border-radius: 6px;
+        background: var(--chip-bg);
+        border: 1.5px dashed var(--tape-ink);
+        padding: 8px 16px;
+        border-radius: 10px;
         transition: 0.2s;
+        display: inline-block;
     }
-    .social-links a:hover { background: #e5eaf1; }
+    .social-links a:hover { background: var(--tape); color: var(--ink); }
     .empty-note {
-        color: #a4adba;
+        color: var(--ink-muted);
         font-size: 13px;
         font-style: italic;
     }
     .actions {
         margin-top: 34px;
         padding-top: 24px;
-        border-top: 1px solid #eef1f6;
+        border-top: 2px dashed var(--rule);
     }
     .btn {
         padding: 11px 22px;
-        border: none;
-        border-radius: 6px;
+        border-radius: 10px;
         font-size: 13px;
         font-weight: 700;
         cursor: pointer;
         text-decoration: none;
         display: inline-block;
-        background: #f1f4f8;
-        color: #0f2f52;
-        border: 1px solid #dbe2ec;
+        background: var(--chip-bg);
+        color: var(--tape-ink);
+        border: 1.5px dashed var(--tape-ink);
         transition: 0.2s;
     }
-    .btn:hover { background: #e5eaf1; }
+    .btn:hover { background: var(--tape); color: var(--ink); }
     footer {
         text-align: center;
-        color: #93a0b3;
+        color: var(--ink-muted);
         font-size: 12px;
         padding: 24px;
     }
@@ -238,8 +274,9 @@
 
 <div class="container">
     <div class="record">
+        <div class="washi"></div>
         <div class="record-header">
-            <div class="avatar">LD</div>
+            <div class="avatar">KC</div>
             <div class="who">
                 <div class="name"><?= htmlspecialchars($student['name']) ?></div>
                 <div class="sub"><?= htmlspecialchars($student['course']) ?> &middot; <?= htmlspecialchars($student['year']) ?> &middot; <?= htmlspecialchars($student['section']) ?></div>

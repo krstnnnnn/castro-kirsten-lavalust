@@ -51,10 +51,12 @@ $router->get('/', 'Welcome::index');
 | STUDENT INFORMATION PAGE ROUTES
 | -------------------------------------------------------------------
 | Laboratory Activity: Routing, Controllers, Views, and Middleware
-| Author: Lance Adrian T. De Vero
+| Author: Kirsten Claire M. Castro
 | Submitted to: Sir Ronald M. Marasigan
 */
 $router->get('/student', 'StudentController::index');
 $router->get('/student/profile', 'StudentController::profile')->middleware('StudentMiddleware');
 $router->get('/student/grant-access', 'StudentController::grant_access');
 $router->get('/student/revoke-access', 'StudentController::revoke_access');
+
+$router->get('/users', 'UsersController::index');

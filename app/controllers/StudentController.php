@@ -46,7 +46,7 @@ class StudentController extends Controller
             'page_title' => 'Student Information Profile',
             'student'    => array_merge(
                 $this->get_student_summary(),
-                ['email' => 'lancedevero708@gmail.com']
+                ['email' => 'kirstencastro43@gmail.com']
             ),
         ];
 
@@ -76,24 +76,24 @@ class StudentController extends Controller
     private function get_student_summary()
     {
         return [
-            'student_id' => 'MCC2024-00034',
-            'name'       => 'Lance Adrian T. De Vero',
-            'first_name' => 'Lance',
-            'initials'   => 'LD',
+            'student_id' => 'MCC2024-00018',
+            'name'       => 'Kirsten Claire M. Castro',
+            'first_name' => 'Kirsten',
+            'initials'   => 'KC',
             'course'     => 'BSIT',
             'year'       => '3rd Year',
             'section'    => 'III-F1',
 
             
-            'address'          => 'Aurora Naujan, Oriental Mindoro, Philippines',
-            'contact_number'   => '+63 964 863 9326',
+            'address'          => 'Melgar A, Naujan, Oriental Mindoro, Philippines',
+            'contact_number'   => '+639708655964',
             'skills'           => ['PHP', 'JavaScript', 'MySQL', 'UI Design'],
-            'hobbies'          => ['Designing', 'Photography', 'Badminton'],
+            'hobbies'          => ['Designing', 'Singing', 'Reading', 'Watching'],
             'description'      => 'BSIT student focused on web development and system design, currently exploring backend architecture and access control patterns.',
             'social_links'     => [
-                'facebook'  => 'https://facebook.com/lanceadrian.devero',
-                'github'    => 'https://github.com/TaskM4ster',
-                'instagram' => 'https://instagram.com/lanzzzlottt',
+                'facebook'  => 'https://facebook.com/not.kirstennn',
+                'github'    => 'https://github.com/krstnnnnn',
+                'instagram' => 'https://instagram.com/not.kirstenn',
             ],
         ];
     }
