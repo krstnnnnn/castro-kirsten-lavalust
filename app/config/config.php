@@ -79,10 +79,11 @@ $config['environment'] = getenv('APP_ENV') ?: 'development';
 | WARNING: You MUST set this value!
 |
 */
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
-$config['base_url'] = $protocol . $_SERVER['HTTP_HOST'] . '/';
-/*
-|--------------------------------------------------------------------------
+$protocol   = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+$script_dir = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');
+$config['base_url'] = $protocol . $_SERVER['HTTP_HOST'] . $script_dir . '/';
+
+/* --------------------------------------------------------------------------
 | Static File Proxies
 |--------------------------------------------------------------------------
 |

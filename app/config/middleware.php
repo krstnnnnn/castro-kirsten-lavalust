@@ -48,3 +48,4 @@ $config['middlewares'] = [
 	'StudentMiddleware' => new StudentMiddleware(),
 	'auth_check'        => new AuthMiddleware(),
 ];
+?>
