@@ -80,7 +80,7 @@ $config['environment'] = getenv('APP_ENV') ?: 'development';
 |
 */
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
-$config['base_url'] = $protocol . $_SERVER['HTTP_HOST'] . '/LavaLust/public/';
+$config['base_url'] = $protocol . $_SERVER['HTTP_HOST'] . '/';
 /*
 |--------------------------------------------------------------------------
 | Static File Proxies
