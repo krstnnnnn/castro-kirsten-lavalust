@@ -80,8 +80,7 @@ $config['environment'] = getenv('APP_ENV') ?: 'development';
 |
 */
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
-$config['base_url'] = $protocol . $_SERVER['HTTP_HOST'] . '/';
-
+$config['base_url'] = $protocol . $_SERVER['HTTP_HOST'] . '/LavaLust/public/';
 /*
 |--------------------------------------------------------------------------
 | Static File Proxies
@@ -349,4 +348,5 @@ $config['csrf_token_name']         = 'csrf_test_name';
 $config['csrf_cookie_name']        = 'csrf_cookie_name';
 $config['csrf_expire']             = 7200;
 $config['csrf_regenerate']         = FALSE;
+
 ?>
