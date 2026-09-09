@@ -356,7 +356,7 @@ $config['csrf_regenerate']         = FALSE;
    require_once APP_DIR . 'middlewares/AuthMiddleware.php';
 
    $config['middlewares'] = [
-       'StudentMiddleware' => new StudentMiddleware(),
-       'auth_check'        => new AuthMiddleware(),
-   ];
+    'StudentMiddleware' => new StudentMiddleware(),
+    'AuthMiddleware'    => new AuthMiddleware(),
+];
 ?>
