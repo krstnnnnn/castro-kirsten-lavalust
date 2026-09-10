@@ -1,20 +1,23 @@
-   <?php
-   defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
+<?php
 
-   class AuthMiddleware
-   {
-       public function handle(Closure $next)
-       {
+defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
-       if (session_status() === PHP_SESSION_NONE) {
-        session_start();
+class AuthMiddleware
+{
+    public function handle(Closure $next)
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
         }
 
-           if (!isset($_SESSION['product_access']) || $_SESSION['product_access'] !== true) {
-               redirect('login');
-           }
+        if (
+            !isset($_SESSION['product_access']) ||
+            $_SESSION['product_access'] !== true
+        ) {
+            redirect('login');
+            return;
+        }
 
-           return $next();
-       }
-   }
-?>
+        return $next();
+    }
+}

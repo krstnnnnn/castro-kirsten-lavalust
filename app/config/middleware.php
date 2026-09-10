@@ -45,7 +45,7 @@ require_once APP_DIR . 'middlewares/StudentMiddleware.php';
 require_once APP_DIR . 'middlewares/AuthMiddleware.php';
 
 $config['middlewares'] = [
-	'StudentMiddleware' => new StudentMiddleware(),
-	'auth_check'        => new AuthMiddleware(),
+    'StudentMiddleware' => new StudentMiddleware(),
+    'auth_check'        => new AuthMiddleware(),
 ];
 ?>

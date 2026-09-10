@@ -65,9 +65,9 @@ $router->get('/login', 'AuthController::login');
 $router->post('/login', 'AuthController::login');
 $router->get('/logout', 'AuthController::logout');
 
-$router->get('/products', 'ProductController::index')->middleware('AuthMiddleware');
-$router->get('/products/create', 'ProductController::create')->middleware('AuthMiddleware');
-$router->post('/products/create', 'ProductController::create')->middleware('AuthMiddleware');
-$router->get('/products/edit', 'ProductController::edit')->middleware('AuthMiddleware');
-$router->post('/products/edit', 'ProductController::edit')->middleware('AuthMiddleware');
-$router->get('/products/delete', 'ProductController::delete')->middleware('AuthMiddleware');
+$router->get('/products', 'ProductController::index')->middleware('auth_check');
+$router->get('/products/create', 'ProductController::create')->middleware('auth_check');
+$router->post('/products/create', 'ProductController::create')->middleware('auth_check');
+$router->get('/products/edit', 'ProductController::edit')->middleware('auth_check');
+$router->post('/products/edit', 'ProductController::edit')->middleware('auth_check');
+$router->get('/products/delete', 'ProductController::delete')->middleware('auth_check');
