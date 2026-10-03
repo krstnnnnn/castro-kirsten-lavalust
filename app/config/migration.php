@@ -67,3 +67,4 @@ $config['migration_table'] = 'migrations';
 |
 */
 $config['migration_path'] = APP_DIR.'migrations/';
+
